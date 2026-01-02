@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { digitalTwinService, careerService } from '../services/api'
 import { AdjustmentsHorizontalIcon, FunnelIcon, BriefcaseIcon } from '@heroicons/react/24/outline'
 
@@ -22,8 +22,6 @@ export default function GapAnalysis() {
   const [selectedRole, setSelectedRole] = useState<number | ''>('')
   const [priorityFilter, setPriorityFilter] = useState<string>('')
   const [minGap, setMinGap] = useState<number>(0)
-
-  const queryClient = useQueryClient()
 
   const { data: roles } = useQuery({
     queryKey: ['career-roles'],

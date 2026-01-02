@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { userService } from '../services/api'
 import { useAuthStore } from '../store/authStore'
@@ -27,13 +27,7 @@ export default function Profile() {
     },
   })
 
-  const updateProfile = useMutation({
-    mutationFn: async (data: Record<string, unknown>) => userService.updateProfile(data),
-    onSuccess: () => {
-      toast.success('Profile updated')
-      loadUser()
-    },
-  })
+
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]

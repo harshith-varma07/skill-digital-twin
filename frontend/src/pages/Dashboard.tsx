@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
-import { digitalTwinService, skillService, careerService, learningService } from '../services/api'
+import { digitalTwinService, careerService, learningService } from '../services/api'
 import { useAuthStore } from '../store/authStore'
 import {
   CpuChipIcon,
@@ -38,7 +38,7 @@ interface LearningRoadmap {
 export default function Dashboard() {
   const { user } = useAuthStore()
 
-  const { data: twinSummary, isLoading: twinLoading } = useQuery({
+  const { data: twinSummary } = useQuery({
     queryKey: ['digital-twin-summary'],
     queryFn: async () => {
       const response = await digitalTwinService.getSummary()
@@ -46,7 +46,7 @@ export default function Dashboard() {
     },
   })
 
-  const { data: careerRecs, isLoading: careerLoading } = useQuery({
+  const { data: careerRecs } = useQuery({
     queryKey: ['career-recommendations'],
     queryFn: async () => {
       const response = await careerService.getRecommendations()
@@ -54,7 +54,7 @@ export default function Dashboard() {
     },
   })
 
-  const { data: roadmaps, isLoading: roadmapsLoading } = useQuery({
+  const { data: roadmaps } = useQuery({
     queryKey: ['learning-roadmaps'],
     queryFn: async () => {
       const response = await learningService.getRoadmaps(true)
@@ -62,15 +62,7 @@ export default function Dashboard() {
     },
   })
 
-  const { data: userSkills } = useQuery({
-    queryKey: ['user-skills'],
-    queryFn: async () => {
-      const response = await skillService.getUserSkills()
-      return response.data
-    },
-  })
 
-  const isLoading = twinLoading || careerLoading || roadmapsLoading
 
   const getMasteryColor = (level: number) => {
     if (level >= 80) return 'text-green-600 bg-green-100'
