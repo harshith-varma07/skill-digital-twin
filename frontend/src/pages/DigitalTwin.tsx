@@ -1,6 +1,6 @@
-import { useCallback, useRef, useEffect, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import ForceGraph2D, { ForceGraphMethods, NodeObject, LinkObject } from 'react-force-graph-2d'
+import ForceGraph2D, { ForceGraphMethods, NodeObject } from 'react-force-graph-2d'
 import { digitalTwinService, skillService } from '../services/api'
 import {
   MagnifyingGlassIcon,

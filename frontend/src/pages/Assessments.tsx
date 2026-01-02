@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { assessmentService } from '../services/api'
-import { ChartBarIcon, QuestionMarkCircleIcon, PlayIcon } from '@heroicons/react/24/outline'
+import { QuestionMarkCircleIcon, PlayIcon } from '@heroicons/react/24/outline'
 
 interface Assessment {
   id: number

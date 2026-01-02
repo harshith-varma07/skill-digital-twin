@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { learningService, skillService } from '../services/api'
-import { AcademicCapIcon, PlayCircleIcon, CheckCircleIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { learningService } from '../services/api'
+import { AcademicCapIcon, PlayCircleIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
 
 interface RoadmapModule {
   id: number
