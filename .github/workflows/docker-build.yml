@@ -6,10 +6,15 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+permissions:
+  contents: read
+
 jobs:
   build-backend:
     name: Build Backend Docker Image
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout code
@@ -31,6 +36,8 @@ jobs:
   build-frontend:
     name: Build Frontend Docker Image
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout code
@@ -54,6 +61,8 @@ jobs:
   validate-compose:
     name: Validate Docker Compose
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout code
@@ -69,6 +78,8 @@ jobs:
     name: Integration Test
     runs-on: ubuntu-latest
     needs: [build-backend, build-frontend]
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout code
