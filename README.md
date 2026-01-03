@@ -74,6 +74,8 @@ An AI-powered skill profiling, gap analysis, and personalized learning roadmap s
 
 The easiest way to run the entire application is using Docker Compose.
 
+> **📖 For detailed Docker documentation, troubleshooting, and advanced configurations, see [DOCKER.md](DOCKER.md)**
+
 #### Quick Start with Docker
 
 1. **Clone the repository**
@@ -155,6 +157,38 @@ docker compose exec backend python -m app.seed_data
 # Access database
 docker compose exec postgres psql -U postgres -d skill_digital_twin
 ```
+
+#### Using Makefile (Optional but Recommended)
+
+For convenience, a Makefile is provided with common commands:
+
+```bash
+# Show all available commands
+make help
+
+# Quick start
+make up
+
+# View logs
+make logs
+
+# Stop services
+make down
+
+# Development mode
+make dev
+
+# Rebuild and restart
+make rebuild
+
+# Seed database
+make seed
+
+# Access database shell
+make db-shell
+```
+
+See `make help` for all available commands.
 
 ### Manual Setup (Without Docker)
 

@@ -1,0 +1,44 @@
+# Git
+.git/
+.gitignore
+.github/
+
+# Documentation
+*.md
+README.md
+DOCKER.md
+LICENSE
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CI/CD
+.travis.yml
+.gitlab-ci.yml
+.circleci/
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.bak
+.cache/

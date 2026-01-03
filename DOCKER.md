@@ -44,9 +44,19 @@ python -c "import secrets; print(secrets.token_urlsafe(32))"
 
 ### 3. Start the Application
 
+**Option A: Using Docker Compose directly**
+
 ```bash
 docker compose up -d
 ```
+
+**Option B: Using Makefile (recommended)**
+
+```bash
+make up
+```
+
+The Makefile provides convenient shortcuts for common Docker operations. Run `make help` to see all available commands.
 
 This command will:
 - Pull required Docker images (PostgreSQL, Redis, Node, Python)
