@@ -61,10 +61,13 @@ seed: ## Seed database with initial data
 	docker compose exec backend python -m app.seed_data
 
 backup: ## Backup database to backup.sql
+	@docker compose ps postgres | grep -q "Up" || (echo "Error: PostgreSQL service is not running. Start it with 'make up'" && exit 1)
 	docker compose exec postgres pg_dump -U postgres skill_digital_twin > backup.sql
 	@echo "Database backed up to backup.sql"
 
 restore: ## Restore database from backup.sql
+	@docker compose ps postgres | grep -q "Up" || (echo "Error: PostgreSQL service is not running. Start it with 'make up'" && exit 1)
+	@test -f backup.sql || (echo "Error: backup.sql not found" && exit 1)
 	docker compose exec -T postgres psql -U postgres skill_digital_twin < backup.sql
 	@echo "Database restored from backup.sql"
 

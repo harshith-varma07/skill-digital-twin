@@ -62,9 +62,12 @@ echo ""
 # Check endpoints
 echo "Checking Endpoints:"
 echo "-------------------"
-check_endpoint "Backend API" "http://localhost:8000/" 10 || true
-check_endpoint "Backend Docs" "http://localhost:8000/docs" 10 || true
-check_endpoint "Frontend" "http://localhost:80/" 10 || true
+BACKEND_PORT=${BACKEND_PORT:-8000}
+FRONTEND_PORT=${FRONTEND_PORT:-80}
+
+check_endpoint "Backend API" "http://localhost:${BACKEND_PORT}/" 10 || true
+check_endpoint "Backend Docs" "http://localhost:${BACKEND_PORT}/docs" 10 || true
+check_endpoint "Frontend" "http://localhost:${FRONTEND_PORT}/" 10 || true
 echo ""
 
 # Check database connectivity
