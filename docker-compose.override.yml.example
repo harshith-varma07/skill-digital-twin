@@ -1,0 +1,47 @@
+# docker-compose.override.yml
+# 
+# This file is automatically loaded by Docker Compose and can be used to override
+# settings from docker-compose.yml without modifying the original file.
+# 
+# Common use cases:
+# - Custom port mappings
+# - Volume mounts for development
+# - Environment variable overrides
+# - Additional service configuration
+#
+# Copy this file to docker-compose.override.yml and customize as needed.
+# This file is in .gitignore and won't be committed.
+
+services:
+  # Example: Change frontend port
+  # frontend:
+  #   ports:
+  #     - "8080:80"
+
+  # Example: Change backend port
+  # backend:
+  #   ports:
+  #     - "8001:8000"
+
+  # Example: Add volume mount for backend development
+  # backend:
+  #   volumes:
+  #     - ./backend:/app
+  #     - /app/__pycache__
+
+  # Example: Add volume mount for frontend development
+  # frontend:
+  #   volumes:
+  #     - ./frontend/src:/app/src
+
+  # Example: Override environment variables
+  # backend:
+  #   environment:
+  #     - DEBUG=True
+  #     - LOG_LEVEL=debug
+
+  # Example: Add additional ports
+  # backend:
+  #   ports:
+  #     - "8000:8000"
+  #     - "5678:5678"  # For debugpy remote debugging

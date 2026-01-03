@@ -2,6 +2,8 @@
 
 An AI-powered skill profiling, gap analysis, and personalized learning roadmap system that creates a dynamic visual representation of a learner's skills, identifies gaps, and generates personalized learning paths.
 
+> **🚀 Quick Start**: New to Docker? Check out our [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+
 ## 🌟 Features
 
 ### Core Features
@@ -60,11 +62,149 @@ An AI-powered skill profiling, gap analysis, and personalized learning roadmap s
 
 ## 🚀 Getting Started
 
+Choose your deployment method:
+
+| Method | Best For | Setup Time | Documentation |
+|--------|----------|------------|---------------|
+| 🐳 **Docker** | Quick start, Production | 5 minutes | [QUICKSTART.md](QUICKSTART.md) |
+| 💻 **Manual Setup** | Development, Customization | 15-20 minutes | [See below](#manual-setup-without-docker) |
+
 ### Prerequisites
+
+**For Docker Deployment (Recommended):**
+- Docker & Docker Compose
+- OpenAI API key (optional)
+- YouTube API key (optional)
+
+**For Manual Setup:**
 - Python 3.10+
 - Node.js 18+
 - PostgreSQL 14+
 - Redis (optional, for caching)
+
+### 🐳 Docker Deployment (Recommended)
+
+The easiest way to run the entire application is using Docker Compose.
+
+> **📖 Documentation:**
+> - **Quick Start**: [QUICKSTART.md](QUICKSTART.md) - Get running in 5 minutes!
+> - **Detailed Guide**: [DOCKER.md](DOCKER.md) - Full Docker documentation
+
+#### Quick Start with Docker
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd skill-digital-twin
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys (OPENAI_API_KEY, YOUTUBE_API_KEY)
+   ```
+
+3. **Build and start all services**
+   ```bash
+   docker compose up -d
+   ```
+
+   This will start:
+   - PostgreSQL database (port 5432)
+   - Redis cache (port 6379)
+   - Backend API (port 8000)
+   - Frontend application (port 80)
+
+4. **Access the application**
+   - Frontend: `http://localhost`
+   - Backend API: `http://localhost:8000`
+   - API Documentation: `http://localhost:8000/docs`
+
+5. **View logs**
+   ```bash
+   docker compose logs -f
+   ```
+
+6. **Stop all services**
+   ```bash
+   docker compose down
+   ```
+
+7. **Stop and remove volumes (clean slate)**
+   ```bash
+   docker compose down -v
+   ```
+
+#### Development Mode with Hot Reload
+
+For development with hot-reloading:
+
+```bash
+docker compose -f docker-compose.dev.yml up
+```
+
+This runs:
+- Backend with auto-reload on code changes (port 8000)
+- Frontend with Vite dev server (port 3000)
+- PostgreSQL and Redis
+
+Access at `http://localhost:3000` (frontend) and `http://localhost:8000` (backend)
+
+#### Docker Commands Reference
+
+```bash
+# Rebuild services after code changes
+docker compose build
+
+# Rebuild specific service
+docker compose build backend
+
+# Start specific service
+docker compose up backend
+
+# View service logs
+docker compose logs backend -f
+
+# Execute commands in running container
+docker compose exec backend python -m app.seed_data
+
+# Access database
+docker compose exec postgres psql -U postgres -d skill_digital_twin
+```
+
+#### Using Makefile (Optional but Recommended)
+
+For convenience, a Makefile is provided with common commands:
+
+```bash
+# Show all available commands
+make help
+
+# Quick start
+make up
+
+# View logs
+make logs
+
+# Stop services
+make down
+
+# Development mode
+make dev
+
+# Rebuild and restart
+make rebuild
+
+# Seed database
+make seed
+
+# Access database shell
+make db-shell
+```
+
+See `make help` for all available commands.
+
+### Manual Setup (Without Docker)
 
 ### Backend Setup
 

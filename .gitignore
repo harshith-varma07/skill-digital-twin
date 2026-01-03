@@ -39,6 +39,9 @@ frontend/dist/
 .env.local
 .env.*.local
 
+# Docker
+docker-compose.override.yml
+
 # IDE
 .idea/
 .vscode/
