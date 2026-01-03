@@ -2,6 +2,8 @@
 
 An AI-powered skill profiling, gap analysis, and personalized learning roadmap system that creates a dynamic visual representation of a learner's skills, identifies gaps, and generates personalized learning paths.
 
+> **🚀 Quick Start**: New to Docker? Check out our [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+
 ## 🌟 Features
 
 ### Core Features
@@ -60,21 +62,33 @@ An AI-powered skill profiling, gap analysis, and personalized learning roadmap s
 
 ## 🚀 Getting Started
 
+Choose your deployment method:
+
+| Method | Best For | Setup Time | Documentation |
+|--------|----------|------------|---------------|
+| 🐳 **Docker** | Quick start, Production | 5 minutes | [QUICKSTART.md](QUICKSTART.md) |
+| 💻 **Manual Setup** | Development, Customization | 15-20 minutes | [See below](#manual-setup-without-docker) |
+
 ### Prerequisites
+
+**For Docker Deployment (Recommended):**
+- Docker & Docker Compose
+- OpenAI API key (optional)
+- YouTube API key (optional)
+
+**For Manual Setup:**
 - Python 3.10+
 - Node.js 18+
 - PostgreSQL 14+
 - Redis (optional, for caching)
 
-**OR**
-
-- Docker & Docker Compose (recommended for quick setup)
-
 ### 🐳 Docker Deployment (Recommended)
 
 The easiest way to run the entire application is using Docker Compose.
 
-> **📖 For detailed Docker documentation, troubleshooting, and advanced configurations, see [DOCKER.md](DOCKER.md)**
+> **📖 Documentation:**
+> - **Quick Start**: [QUICKSTART.md](QUICKSTART.md) - Get running in 5 minutes!
+> - **Detailed Guide**: [DOCKER.md](DOCKER.md) - Full Docker documentation
 
 #### Quick Start with Docker
 
