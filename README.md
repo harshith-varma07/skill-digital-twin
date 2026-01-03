@@ -66,6 +66,98 @@ An AI-powered skill profiling, gap analysis, and personalized learning roadmap s
 - PostgreSQL 14+
 - Redis (optional, for caching)
 
+**OR**
+
+- Docker & Docker Compose (recommended for quick setup)
+
+### 🐳 Docker Deployment (Recommended)
+
+The easiest way to run the entire application is using Docker Compose.
+
+#### Quick Start with Docker
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd skill-digital-twin
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys (OPENAI_API_KEY, YOUTUBE_API_KEY)
+   ```
+
+3. **Build and start all services**
+   ```bash
+   docker-compose up -d
+   ```
+
+   This will start:
+   - PostgreSQL database (port 5432)
+   - Redis cache (port 6379)
+   - Backend API (port 8000)
+   - Frontend application (port 80)
+
+4. **Access the application**
+   - Frontend: `http://localhost`
+   - Backend API: `http://localhost:8000`
+   - API Documentation: `http://localhost:8000/docs`
+
+5. **View logs**
+   ```bash
+   docker-compose logs -f
+   ```
+
+6. **Stop all services**
+   ```bash
+   docker-compose down
+   ```
+
+7. **Stop and remove volumes (clean slate)**
+   ```bash
+   docker-compose down -v
+   ```
+
+#### Development Mode with Hot Reload
+
+For development with hot-reloading:
+
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+This runs:
+- Backend with auto-reload on code changes (port 8000)
+- Frontend with Vite dev server (port 3000)
+- PostgreSQL and Redis
+
+Access at `http://localhost:3000` (frontend) and `http://localhost:8000` (backend)
+
+#### Docker Commands Reference
+
+```bash
+# Rebuild services after code changes
+docker-compose build
+
+# Rebuild specific service
+docker-compose build backend
+
+# Start specific service
+docker-compose up backend
+
+# View service logs
+docker-compose logs backend -f
+
+# Execute commands in running container
+docker-compose exec backend python -m app.seed_data
+
+# Access database
+docker-compose exec postgres psql -U postgres -d skill_digital_twin
+```
+
+### Manual Setup (Without Docker)
+
 ### Backend Setup
 
 1. **Navigate to backend directory**
