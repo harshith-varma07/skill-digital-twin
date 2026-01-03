@@ -90,7 +90,7 @@ The easiest way to run the entire application is using Docker Compose.
 
 3. **Build and start all services**
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
    This will start:
@@ -106,17 +106,17 @@ The easiest way to run the entire application is using Docker Compose.
 
 5. **View logs**
    ```bash
-   docker-compose logs -f
+   docker compose logs -f
    ```
 
 6. **Stop all services**
    ```bash
-   docker-compose down
+   docker compose down
    ```
 
 7. **Stop and remove volumes (clean slate)**
    ```bash
-   docker-compose down -v
+   docker compose down -v
    ```
 
 #### Development Mode with Hot Reload
@@ -124,7 +124,7 @@ The easiest way to run the entire application is using Docker Compose.
 For development with hot-reloading:
 
 ```bash
-docker-compose -f docker-compose.dev.yml up
+docker compose -f docker-compose.dev.yml up
 ```
 
 This runs:
@@ -138,22 +138,22 @@ Access at `http://localhost:3000` (frontend) and `http://localhost:8000` (backen
 
 ```bash
 # Rebuild services after code changes
-docker-compose build
+docker compose build
 
 # Rebuild specific service
-docker-compose build backend
+docker compose build backend
 
 # Start specific service
-docker-compose up backend
+docker compose up backend
 
 # View service logs
-docker-compose logs backend -f
+docker compose logs backend -f
 
 # Execute commands in running container
-docker-compose exec backend python -m app.seed_data
+docker compose exec backend python -m app.seed_data
 
 # Access database
-docker-compose exec postgres psql -U postgres -d skill_digital_twin
+docker compose exec postgres psql -U postgres -d skill_digital_twin
 ```
 
 ### Manual Setup (Without Docker)
